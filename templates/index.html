@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+<style>
+input{
+border-radius: 20px;
+padding:10px;
+}
+.button{
+background-color:green;
+padding:15px 40px;
+margin-top:25px;
+border-radius:10px;
+color:white;
+border:2px solid white;
+font-size:20px;
+}
+
+</style>
+<body style="background-color:#c4bcbc">
+ <div class="login">
+	<h1 style="text-align:center;text-decoration:underline">Anomaly Detection in Bitcoin Network</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post" style="text-align:center">
+        <h1 style="margin-bottom:40px">Enter Year Between 2009 -2021</h1>
+        <label for="Enter Initial Year" style="color:white;font-weight:bold;">Enter Initial Year:</label><br>
+    	<input type="text" name="initial" placeholder="initial" required="required" />
+    	<br><br>
+    	<label for="Enter Final Year" style="color:white;font-weight:bold">Enter Final Year:</label><br>
+        <input type="text" name="final" placeholder="final" required="required" />
+        <br><br>
+        <button type="submit" class="button">Detect</button>
+    </form>
+<p style="text-align:center;font-weight:bold">{{ text }}</p>      
+<p style="text-align:center">{{ normal }}</p>
+<p style="text-align:center"> {{ anomaly }}</p>
+ </div>
+
+</body>
+</html>
+
